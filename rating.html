@@ -1,47 +1,99 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="nl">
-	<head>
-		<meta charset="utf-8">
-		<title>Rating / Progressive Enhancement / FDND</title>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<link href="assets/styles.css" rel="stylesheet">
-		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
-			
-			/* Hint: als je de sterren als achtergrond voor iets wilt gebruiken, zijn dit de SVG's die je kunt gebruiken:
+  <head>
+    <meta charset="utf-8" />
+    <title>Rating / Progressive Enhancement / FDND</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="assets/styles.css" rel="stylesheet" />
+    <style>
+      /* Schrijf hier gewoon je CSS voor dit component */
+
+      /* Hint: als je de sterren als achtergrond voor iets wilt gebruiken, zijn dit de SVG's die je kunt gebruiken:
 				url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="%2366E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path></svg>')
 				url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="%2366E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path></svg>')
 			*/
 
-			/* Hint: met Grid Layout kun je elementen over elkaar heen leggen */
-		</style>
-	</head>
-	<body>
-		<h1>Rating</h1>
+      form input[type="radio"] {
+        appearance: none;
+        height: 2rem;
+        width: 2rem;
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="%2366E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path></svg>');
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-left: 0;
+        margin-right: 0;
+      }
 
-		<!-- Dit zijn de SVG's van de sterren. Maar horen die wel in HTML, of is dit eigenlijk styling?
+      input[type="radio"]:checked ~ input[type="radio"] {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="%2366E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path></svg>');
+      }
 
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      input[type="radio"]:hover ~ input[type="radio"] {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="%2366E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path></svg>') !important;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Rating</h1>
+
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
 				<path fill="#66E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>
 			</svg>
 
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
 				<path fill="#66E5BF" d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798z"></path>
-			</svg>
-		-->
+			</svg> -->
 
-		<!-- Waarschijnlijk wil je je rating ooit opslaan, dus heb je een formulier nodig -->
-		<form method="post">
+    <!-- Waarschijnlijk wil je je rating ooit opslaan, dus heb je een formulier nodig -->
+    <form method="post">
+      <input type="radio" id="rating-1" name="rating" value="1" />
+      <input type="radio" id="rating-2" name="rating" value="2" />
+      <input type="radio" id="rating-3" name="rating" value="3" />
+      <input type="radio" id="rating-4" name="rating" value="4" />
+      <input type="radio" id="rating-5" name="rating" value="5" />
 
-			<!-- Hint: hoeveel verschillende ratings kun je geven? -->
+      <button type="submit">Submit</button>
+    </form>
 
-		</form>
+    <details open>
+      <summary>Demo video</summary>
+      <video
+        src="assets/rating.mp4"
+        width="271"
+        height="110"
+        controls
+        muted
+        autoplay
+        loop
+      >
+        <a href="assets/rating.mp4">assets/rating.mp4</a>
+      </video>
+    </details>
 
-		<details open>
-			<summary>Demo video</summary>
-			<video src="assets/rating.mp4" width="271" height="110" controls muted autoplay loop>
-				<a href="assets/rating.mp4">assets/rating.mp4</a>
-			</video>
-		</details>
-	</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const radios = document.querySelectorAll(
+          'input[type="radio"][name="rating"]'
+        );
+        const form = document.querySelector("form");
+
+        radios.forEach((radio) => {
+          radio.addEventListener("change", (event) => {
+            if (event.target.checked) {
+              form.submit();
+            }
+          });
+        });
+
+        document.querySelector("button").classList.add("hidden");
+      });
+    </script>
+  </body>
 </html>

@@ -1,41 +1,163 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="nl">
-	<head>
-		<meta charset="utf-8">
-		<title>Veelgestelde vragen / Progressive Enhancement / FDND</title>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<link href="assets/styles.css" rel="stylesheet">
-		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
+  <head>
+    <meta charset="utf-8" />
+    <title>Veelgestelde vragen / Progressive Enhancement / FDND</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="assets/styles.css" rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
 
-			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
+      details > summary {
+        padding: 0.8rem 0.8rem;
+        width: fit-content;
+        border: 1px solid black;
+        border-radius: 0.4rem;
+        cursor: pointer;
+        margin-top: 1rem;
+        list-style: none;
+      }
 
-			/* Hint: Denk aan de states van het component; deze kan open en dicht zijn */
-		</style>
-	</head>
-	<body>
-		<h1>Veelgestelde vragen</h1>
+      details svg {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.5rem;
+        transform: translateY(0.15rem);
+        transition: transform 0.3s;
+      }
 
+      details[open] svg {
+        transform: translateY(0.1rem) rotate(45deg);
+      }
 
-		<!-- Content (waar nog wat HTML omheen moet 😄):
-		Wat is frontend development?
-		Een frontend developer ontwerpt en bouwt websites in HTML, CSS en JavaScript. Deze frontend talen leer je bij ons, je hebt dus geen voorkennis nodig.
+      details[open] > summary {
+        border-radius: 0.4rem 0.4rem 0 0;
+        border: none;
+      }
 
-		Moet ik al kunnen coderen?
-		Nee, je hebt helemaal geen voorkennis nodig om te beginnen aan deze opleiding, we kunnen je alles leren! Als je wel al voorkennis hebt, is dat alleen maar goed, dan kunnen we je helpen je skills te verbeteren en te verdiepen in de stof.
+      details[open]:nth-of-type(1) > summary {
+        background-color: #aa63ce;
+      }
 
-		Wat is een Associate Degree?
-		Een Associate degree-opleiding is een tweejarige hbo-opleiding op niveau 5. Een Ad slaat een brug tussen het mbo-4 (niveau 4) en een hbo-bachelor (niveau 6). Met een Associate degree kies je voor een praktijkgerichte hbo-opleiding; je wordt opgeleid voor een beroep dat aansluit bij de praktijk. In dit geval word je opgeleid tot ‘frontend designer/developer' of kortweg ‘frontender’. Frontenders ontwerpen en maken interactieve, toegankelijke toepassingen voor het web. Frontenders werken binnen het gebied van software development, interactieontwerp en digitaal visueel ontwerp.
-		Na afronding van deze tweejarige hbo-opleiding, krijg je een wettelijk erkend hbo-diploma met de graad Associate degree. Met dit Ad-diploma kun je direct aan de slag in het werkveld of doorstromen naar de bacheloropleiding Communication and Multimedia Design (CMD).
-		-->
+      details[open]:nth-of-type(2) > summary {
+        background-color: #2dcb94;
+      }
 
+      details[open]:nth-of-type(3) > summary {
+        background-color: #eaee73;
+      }
 
-		<!-- Hint: Dit stukje HTML geeft het misschien al weg :) -->
-		<details open>
-			<summary>Demo video</summary>
-			<video src="assets/faq.mp4" width="765" height="769" controls muted autoplay loop>
-				<a href="assets/faq.mp4">assets/faq.mp4</a>
-			</video>
-		</details>
-	</body>
+      details > p {
+        border-radius: 0 0.4rem 0.4rem 0.4rem;
+        margin: 0;
+        padding: 1rem;
+      }
+
+      details:nth-of-type(1) > p {
+        background-color: #aa63ce;
+      }
+
+      details:nth-of-type(2) > p {
+        background-color: #2dcb94;
+      }
+
+      details:nth-of-type(3) > p {
+        background-color: #eaee73;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Veelgestelde vragen</h1>
+
+    <details>
+      <summary>
+        <svg fill="#000000" viewBox="0 0 45.402 45.402">
+          <path
+            d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141
+		c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27
+		c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435
+		c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"
+          />
+        </svg>
+        Wat is frontend development?
+      </summary>
+      <p>
+        Een frontend developer ontwerpt en bouwt websites in HTML, CSS en
+        JavaScript. Deze frontend talen leer je bij ons, je hebt dus geen
+        voorkennis nodig.
+      </p>
+    </details>
+
+    <details>
+      <summary>
+        <svg fill="#000000" viewBox="0 0 45.402 45.402">
+          <path
+            d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141
+		c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27
+		c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435
+		c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"
+          />
+        </svg>
+        Moet ik al kunnen coderen?
+      </summary>
+      <p>
+        Nee, je hebt helemaal geen voorkennis nodig om te beginnen aan deze
+        opleiding, we kunnen je alles leren! Als je wel al voorkennis hebt, is
+        dat alleen maar goed, dan kunnen we je helpen je skills te verbeteren en
+        te verdiepen in de stof.
+      </p>
+    </details>
+
+    <details>
+      <summary>
+        <svg fill="#000000" viewBox="0 0 45.402 45.402">
+          <path
+            d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141
+		c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27
+		c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435
+		c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"
+          />
+        </svg>
+        Wat is een Associate Degree?
+      </summary>
+      <p>
+        Een Associate degree-opleiding is een tweejarige hbo-opleiding op niveau
+        5. Een Ad slaat een brug tussen het mbo-4 (niveau 4) en een hbo-bachelor
+        (niveau 6). Met een Associate degree kies je voor een praktijkgerichte
+        hbo-opleiding; je wordt opgeleid voor een beroep dat aansluit bij de
+        praktijk. In dit geval word je opgeleid tot ‘frontend
+        designer/developer' of kortweg ‘frontender’. Frontenders ontwerpen en
+        maken interactieve, toegankelijke toepassingen voor het web. Frontenders
+        werken binnen het gebied van software development, interactieontwerp en
+        digitaal visueel ontwerp.
+      </p>
+      <p>
+        Na afronding van deze tweejarige hbo-opleiding, krijg je een wettelijk
+        erkend hbo-diploma met de graad Associate degree. Met dit Ad-diploma kun
+        je direct aan de slag in het werkveld of doorstromen naar de
+        bacheloropleiding Communication and Multimedia Design (CMD).
+      </p>
+    </details>
+
+    <!-- Hint: Dit stukje HTML geeft het misschien al weg :) -->
+    <details open>
+      <summary>Demo video</summary>
+      <video
+        src="assets/faq.mp4"
+        width="765"
+        height="769"
+        controls
+        muted
+        autoplay
+        loop
+      >
+        <a href="assets/faq.mp4">assets/faq.mp4</a>
+      </video>
+    </details>
+  </body>
 </html>

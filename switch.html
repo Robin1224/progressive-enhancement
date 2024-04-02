@@ -1,28 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="nl">
-	<head>
-		<meta charset="utf-8">
-		<title>Switch control / Progressive Enhancement / FDND</title>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<link href="assets/styles.css" rel="stylesheet">
-		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
+  <head>
+    <meta charset="utf-8" />
+    <title>Switch control / Progressive Enhancement / FDND</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="assets/styles.css" rel="stylesheet" />
+    <style>
+      /* Schrijf hier gewoon je CSS voor dit component */
 
-			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
+      /* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
-			/* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
-		</style>
-	</head>
-	<body>
-		<h1>Switch control</h1>
-		
-		<!-- Hint: Op het WebKit blog stond hierover vorige maand een goed artikel -->
+      /* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
 
-		<details open>
-			<summary>Demo video</summary>
-			<video src="assets/switch.mp4" width="119" height="67" controls muted autoplay loop>
-				<a href="assets/switch.mp4">assets/switch.mp4</a>
-			</video>
-		</details>
-	</body>
+      .form-switch {
+        display: inline-block;
+        cursor: pointer;
+      }
+      .form-switch div {
+        position: relative;
+        display: inline-block;
+        margin-right: 0.5rem;
+        width: 46px;
+        height: 26px;
+        background-color: #bfb9b9;
+        border-radius: 23px;
+        vertical-align: text-bottom;
+        transition: all 0.3s linear;
+      }
+      .form-switch div::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 42px;
+        height: 22px;
+        background-color: #bfb9b9;
+        border-radius: 11px;
+        transform: translate(2px, 2px) scale(1, 1);
+        transition: all 0.25s linear;
+      }
+      .form-switch div::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 22px;
+        height: 22px;
+        background-color: #fff;
+        border-radius: 11px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
+        transform: translate(2px, 2px);
+        transition: all 0.2s ease-in-out;
+      }
+      .form-switch:active div::after {
+        width: 28px;
+        transform: translate(2px, 2px);
+      }
+      .form-switch:active input:checked + div::after {
+        transform: translate(16px, 2px);
+      }
+      .form-switch input {
+        display: none;
+      }
+      .form-switch input:checked + div {
+        background-color: #4bd763;
+      }
+      .form-switch input:checked + div::before {
+        transform: translate(18px, 2px) scale(0, 0);
+      }
+      .form-switch input:checked + div::after {
+        transform: translate(22px, 2px);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Switch control</h1>
+
+    <!-- Hint: Op het WebKit blog stond hierover vorige maand een goed artikel -->
+
+    <label class="form-switch">
+      <input type="checkbox" />
+      <div></div>
+    </label>
+
+    <details open>
+      <summary>Demo video</summary>
+      <video
+        src="assets/switch.mp4"
+        width="119"
+        height="67"
+        controls
+        muted
+        autoplay
+        loop
+      >
+        <a href="assets/switch.mp4">assets/switch.mp4</a>
+      </video>
+    </details>
+  </body>
 </html>
